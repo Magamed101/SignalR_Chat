@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@{
+    ViewData["Title"] = "AddInChat";
+}
+@model List<IdentityUser>
+<h1>AddInChat</h1>
+@foreach (var u in Model)
+{
+    <div>
+        <h4>@u.UserName</h4>
+        <form method="post" asp-controller="Roles" asp-action="AddInChat">
+            <input type="hidden" name="name" value="@u.UserName" />
+            <button type="submit">
+                Submit
+            </button>
+        </form>
+    </div>
+}
